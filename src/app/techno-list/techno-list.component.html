@@ -1,0 +1,32 @@
+<div class="offset-md-2 col-md-8">
+  <h3>Liste des technos</h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Catégorie</th>
+        <th scope="col">Détails</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let techno of allTechnos">
+        <td scope="row">{{techno.technoName}}</td>
+        <td [ngSwitch]="techno.category">
+          <span *ngSwitchCase="'back'">Back-end</span>
+          <span *ngSwitchCase="'front'">Front-end</span>
+          <span *ngSwitchCase="'fullstack'">Fullstack</span>
+          <span *ngSwitchDefault>{{techno.category}}</span>
+        </td>
+        <td>{{techno.details}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteTechno(techno)">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+            </svg>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
